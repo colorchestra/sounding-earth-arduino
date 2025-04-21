@@ -7,16 +7,16 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 // Wi-Fi credentials
-const char* ssid = ""; // add Wifi name here
+const char* ssid = "soundingearth"; // add Wifi name here
 const char* password = ""; // add Wifi password here
 
 // MQTT broker
-const char* mqtt_server = "192.168.178.123"; // add MQTT server IP here
+const char* mqtt_server = "192.168.8.100"; // add MQTT server IP here
 const char* mqtt_user = "esp"; // add MQTT username here
-const char* mqtt_pass = "asdfasdfasdf"; // add MQTT password here
+const char* mqtt_pass = ""; // add MQTT password here
 
 // uncomment the corresponding line for each ESP!
-const char* mqtt_sub_topic = "india/#"; 
+const char* mqtt_sub_topic = "india/#";
 //const char* mqtt_sub_topic = "bhutan/#";
 //const char* mqtt_sub_topic = "indonesia/#";
 
@@ -67,14 +67,22 @@ void loop() {
 }
 
 // --- Your custom functions ---
+
+// add code for turning the light on or off
+// payload will be "on" or "off"
 void handleLightCommand(String payload) {
   Serial.println("Light was switched " + payload);
 }
 
+// add code for turning the stream on or off
+// payload will be "on" or "off"
 void handleStreamCommand(String payload) {
   Serial.println("Stream was switched " + payload);
+
 }
 
+// add code for turning the instrument on or off
+// payload will be "on" or "off"
 void handleInstrumentCommand(String payload) {
   Serial.println("Instrument was switched " + payload);
 }
